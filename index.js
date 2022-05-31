@@ -14,11 +14,22 @@ function addSum(a) {
 }
 
 function getSum(arr) {
-  return arr.reduce((acc, num) => acc + Number(num), 0);
+  let sum = 0;
+  for (let num of arr) {
+    if (Number(num) > 0) {
+      sum += Number(num);
+    } else {
+      throw new Error('Negative Number Found');
+    }
+  }
+  return sum;
 }
 
 function getNumbers(input) {
-  const arr = input.replaceAll('\n', ',').split(',');
+  const arr = input
+    .replaceAll('\n', ',')
+    .split(',')
+    .filter((el) => el != '');
   return arr;
 }
 
@@ -31,8 +42,9 @@ function checkIfEmpty(input) {
 
 console.log(addSum(''));
 console.log(addSum('1'));
-console.log(addSum('1 ,2'));
+console.log(addSum('1,2,'));
 console.log(addSum('1 ,2,3,4,5'));
 console.log(addSum('1\n2,3'));
 console.log(addSum('1\n2,3\n'));
 console.log(addSum('1,\n'));
+console.log(addSum('1,2,-3'));
