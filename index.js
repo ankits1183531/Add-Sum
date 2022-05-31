@@ -18,7 +18,7 @@ function getSum(arr) {
 }
 
 function getNumbers(input) {
-  const arr = input.split(',');
+  const arr = input.replaceAll('\n', ',').split(',');
   return arr;
 }
 
@@ -33,3 +33,6 @@ console.log(addSum(''));
 console.log(addSum('1'));
 console.log(addSum('1 ,2'));
 console.log(addSum('1 ,2,3,4,5'));
+console.log(addSum('1\n2,3'));
+console.log(addSum('1\n2,3\n'));
+console.log(addSum('1,\n'));
