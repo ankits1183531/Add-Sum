@@ -5,10 +5,21 @@ import './style.css';
 const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
-function addSum(a, b) {
-  if (checkIfEmpty(a) && checkIfEmpty(b)) {
+function addSum(a) {
+  if (checkIfEmpty(a)) {
     return 0;
+  } else {
+    return getSum(getNumbers(a));
   }
+}
+
+function getSum(arr) {
+  return arr.reduce((acc, num) => acc + Number(num), 0);
+}
+
+function getNumbers(input) {
+  const arr = input.split(',');
+  return arr;
 }
 
 function checkIfEmpty(input) {
@@ -18,4 +29,6 @@ function checkIfEmpty(input) {
   return false;
 }
 
-console.log(addSum('', ''));
+console.log(addSum(''));
+console.log(addSum('1'));
+console.log(addSum('1 ,2'));
