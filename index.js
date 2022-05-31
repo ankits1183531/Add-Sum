@@ -32,3 +32,4 @@ function checkIfEmpty(input) {
 console.log(addSum(''));
 console.log(addSum('1'));
 console.log(addSum('1 ,2'));
+console.log(addSum('1 ,2,3,4,5'));
